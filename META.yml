@@ -28,4 +28,4 @@ requires:
 resources:
   homepage: http://metacpan.org/release/Perinci-Sub-To-POD
   repository: http://github.com/sharyanto/perl-Perinci-Sub-To-POD
-version: 0.02
+version: 0.03
