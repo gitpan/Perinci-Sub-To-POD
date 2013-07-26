@@ -1,0 +1,113 @@
+#!/usr/bin/perl
+
+use 5.010;
+use strict;
+use warnings;
+
+our $VERSION = '0.02'; # VERSION
+
+eval { require Perinci::CmdLine };
+if ($@) {
+    die "This script requires Perinci::CmdLine, please install it first.\n";
+}
+
+our %SPEC;
+
+$SPEC{gen_doc} = {
+    v => 1.1,
+    args => {
+        url => {
+            summary => 'URL',
+            req => 1,
+            pos => 0,
+            schema => 'str*',
+        },
+        format => {
+            summary => 'Format',
+            schema => 'str',
+        },
+    },
+};
+sub gen_doc {
+    require File::Which;
+
+    my %args = @_;
+    # XXX schema
+    my $url = $args{url} or return [400, "Please specify url"];
+
+    my $format = $args{format} // "man";
+    $format = "text" unless
+        File::Which::which("pod2man") && File::Which::which("man");
+
+    # XXX check if url is a module or function or ...
+
+    my ($doc, $res);
+    if ($format eq 'man') {
+        require Perinci::Sub::To::POD;
+        $doc = Perinci::Sub::To::POD->new(url=>$url);
+        $res = $doc->gen_doc;
+        [200, "OK", $res, {
+            "cmdline.page_result"=>1,
+            "cmdline.pager"=>"pod2man | man -l -"}];
+    } else {
+        require Perinci::Sub::To::Text;
+        $doc = Perinci::Sub::To::Text->new(url=>$url);
+        $res = $doc->gen_doc;
+        [200, "OK", $res, {"cmdline.page_result"=>1}];
+    }
+
+}
+
+$ENV{LOG} //= 0; # speed up startup, but allow overriding
+my $cmd = Perinci::CmdLine->new(
+    url => '/main/generate_fdoc',
+);
+delete $cmd->common_opts->{format};
+delete $cmd->common_opts->{format_options};
+$cmd->run;
+
+# ABSTRACT: Display text/POD documentation of Riap function
+# PODNAME: peri-func-doc
+
+__END__
+
+=pod
+
+=encoding utf-8
+
+=head1 NAME
+
+peri-func-doc - Display text/POD documentation of Riap function
+
+=head1 VERSION
+
+version 0.02
+
+=head1 SYNOPSIS
+
+From command-line:
+
+ % peri-func-doc /Some/Module/somefunc
+ % peri-func-doc --format=text https://example.com/api/some_func
+ % peri-func-doc --help
+
+=head1 DESCRIPTION
+
+This script will generate text/POD documentation for a Riap function.
+
+=head1 SEE ALSO
+
+L<peri-pkg-doc>
+
+=head1 AUTHOR
+
+Steven Haryanto <stevenharyanto@gmail.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013 by Steven Haryanto.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut

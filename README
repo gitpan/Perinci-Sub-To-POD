@@ -1,0 +1,26 @@
+NAME
+    Perinci::Sub::To::POD - Generate POD documentation from Rinci function
+    metadata
+
+VERSION
+    version 0.02
+
+SYNOPSIS
+    You can use the included peri-func-doc script, or:
+
+     use Perinci::Sub::To::POD;
+     my $doc = Perinci::Sub::To::POD->new(url => "/Some/Module/somefunc");
+     say $doc->gen_doc;
+
+SEE ALSO
+    Perinci::To::POD to generate POD documentation for the whole package.
+
+AUTHOR
+    Steven Haryanto <stevenharyanto@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2013 by Steven Haryanto.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+

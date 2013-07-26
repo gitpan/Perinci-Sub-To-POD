@@ -1,0 +1,60 @@
+{
+   "abstract" : "Generate POD documentation from Rinci function metadata",
+   "author" : [
+      "Steven Haryanto <stevenharyanto@gmail.com>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.131560",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Perinci-Sub-To-POD",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Module::Build" : "0.3601"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.3601"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Pod::Coverage::TrustPod" : "0",
+            "Test::Pod" : "1.41",
+            "Test::Pod::Coverage" : "1.08",
+            "Test::Rinci" : "0.01"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "File::Which" : "0",
+            "Locale::Maketext::Lexicon::Gettext" : "0",
+            "Log::Any" : "0",
+            "Markdown::Pod" : "0",
+            "Moo" : "0",
+            "Perinci::CmdLine" : "0.83",
+            "Perinci::Sub::To::FuncBase" : "0",
+            "Perinci::Sub::To::FuncBase::I18N" : "0",
+            "Perinci::Sub::To::FuncBase::I18N::en" : "0",
+            "Perinci::Sub::To::Text" : "0",
+            "perl" : "5.010001"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "homepage" : "http://metacpan.org/release/Perinci-Sub-To-POD",
+      "repository" : {
+         "url" : "http://github.com/sharyanto/perl-Perinci-Sub-To-POD"
+      }
+   },
+   "version" : "0.02"
+}
+
