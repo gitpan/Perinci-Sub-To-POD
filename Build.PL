@@ -17,7 +17,7 @@ my %module_build_args = (
     "Steven Haryanto <stevenharyanto\@gmail.com>"
   ],
   "dist_name" => "Perinci-Sub-To-POD",
-  "dist_version" => "0.03",
+  "dist_version" => "0.04",
   "license" => "perl",
   "module_name" => "Perinci::Sub::To::POD",
   "recommends" => {},
@@ -32,13 +32,18 @@ my %module_build_args = (
     "Perinci::Sub::To::FuncBase" => 0,
     "Perinci::Sub::To::FuncBase::I18N" => 0,
     "Perinci::Sub::To::FuncBase::I18N::en" => 0,
-    "Perinci::Sub::To::Text" => 0,
+    "Perinci::Sub::To::Text" => "0.24",
     "perl" => "5.010001"
   },
   "script_files" => [
     "bin/peri-func-doc"
   ],
-  "test_requires" => {}
+  "test_requires" => {
+    "Capture::Tiny" => 0,
+    "Test::More" => "0.88",
+    "Test::Script" => "1.05",
+    "blib" => 0
+  }
 );
 
 

@@ -6,7 +6,7 @@ use Moo;
 
 extends 'Perinci::Sub::To::FuncBase';
 
-our $VERSION = '0.03'; # VERSION
+our $VERSION = '0.04'; # VERSION
 
 sub BUILD {
     my ($self, $args) = @_;
@@ -25,9 +25,9 @@ sub _md2pod {
 sub after_gen_doc {
     my ($self) = @_;
 
-    my $res   = $self->{_res};
-    my $meta  = $self->{_meta};
-    my $ometa = $self->{_orig_meta};
+    my $res   = $self->{_doc_res};
+    my $meta  = $self->{_doc_meta};
+    my $ometa = $self->{_doc_orig_meta};
 
     my $has_args = !!keys(%{$res->{args}});
 
@@ -191,7 +191,7 @@ Perinci::Sub::To::POD - Generate POD documentation from Rinci function metadata
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 
@@ -217,5 +217,12 @@ This software is copyright (c) 2013 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
+
+=head1 DESCRIPTION
+
+=head1 FUNCTIONS
+
+
+None are exported by default, but they are exportable.
 
 =cut

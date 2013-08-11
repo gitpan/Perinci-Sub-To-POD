@@ -3,7 +3,7 @@ NAME
     metadata
 
 VERSION
-    version 0.03
+    version 0.04
 
 SYNOPSIS
     You can use the included peri-func-doc script, or:
@@ -23,4 +23,8 @@ COPYRIGHT AND LICENSE
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
+
+DESCRIPTION
+FUNCTIONS
+    None are exported by default, but they are exportable.
 
