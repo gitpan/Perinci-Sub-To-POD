@@ -6,7 +6,7 @@ use Moo;
 
 extends 'Perinci::Sub::To::FuncBase';
 
-our $VERSION = '0.04'; # VERSION
+our $VERSION = '0.05'; # VERSION
 
 sub BUILD {
     my ($self, $args) = @_;
@@ -191,7 +191,7 @@ Perinci::Sub::To::POD - Generate POD documentation from Rinci function metadata
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 SYNOPSIS
 
