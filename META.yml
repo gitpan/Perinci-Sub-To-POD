@@ -3,13 +3,12 @@ abstract: 'Generate POD documentation from Rinci function metadata'
 author:
   - 'Steven Haryanto <stevenharyanto@gmail.com>'
 build_requires:
-  Capture::Tiny: 0
-  Module::Build: 0.3601
-  Test::More: 0.88
-  Test::Script: 1.05
-  blib: 0
+  File::Spec: 0
+  IO::Handle: 0
+  IPC::Open3: 0
+  Test::More: 0
 configure_requires:
-  Module::Build: 0.3601
+  ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
 generated_by: 'Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.132140'
 license: perl
@@ -18,12 +17,14 @@ meta-spec:
   version: 1.4
 name: Perinci-Sub-To-POD
 requires:
+  Data::Dump: 0
   File::Which: 0
   Locale::Maketext::Lexicon::Gettext: 0
   Log::Any: 0
   Markdown::Pod: 0
   Moo: 0
   Perinci::CmdLine: 0.83
+  Perinci::Sub::GetArgs::Argv: 0
   Perinci::Sub::To::FuncBase: 0
   Perinci::Sub::To::FuncBase::I18N: 0
   Perinci::Sub::To::FuncBase::I18N::en: 0
@@ -32,4 +33,4 @@ requires:
 resources:
   homepage: http://metacpan.org/release/Perinci-Sub-To-POD
   repository: http://github.com/sharyanto/perl-Perinci-Sub-To-POD
-version: 0.05
+version: 0.06

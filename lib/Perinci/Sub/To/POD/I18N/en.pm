@@ -4,7 +4,7 @@ use parent qw(Perinci::Sub::To::POD::I18N Perinci::Sub::To::FuncBase::I18N::en);
 use Locale::Maketext::Lexicon::Gettext;
 our %Lexicon = %{ Locale::Maketext::Lexicon::Gettext->parse(<DATA>) };
 
-our $VERSION = '0.05'; # VERSION
+our $VERSION = '0.06'; # VERSION
 
 #use Data::Dump; dd \%Lexicon;
 
@@ -21,7 +21,7 @@ Perinci::Sub::To::POD::I18N::en - English translation for Perinci::Sub::To::POD
 
 =head1 VERSION
 
-version 0.05
+version 0.06
 
 =head1 AUTHOR
 
@@ -52,6 +52,9 @@ msgid  "No arguments"
 msgstr "No arguments"
 
 # function
+
+msgid  "Examples"
+msgstr "Examples"
 
 msgid  "None are exported by default, but they are exportable."
 msgstr "None are exported by default, but they are exportable."

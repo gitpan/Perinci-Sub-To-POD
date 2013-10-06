@@ -6,7 +6,7 @@ use Moo;
 
 extends 'Perinci::Sub::To::FuncBase';
 
-our $VERSION = '0.05'; # VERSION
+our $VERSION = '0.06'; # VERSION
 
 sub BUILD {
     my ($self, $args) = @_;
@@ -38,6 +38,63 @@ sub after_gen_doc {
 
     $self->add_doc_lines($res->{summary}.($res->{summary} =~ /\.$/ ? "":"."), "")
         if $res->{summary};
+
+    my $examples = $meta->{examples};
+    if ($examples && @$examples) {
+        $self->add_doc_lines($self->loc("Examples") . ":", "");
+        my $i = 0;
+        for my $eg (@$examples) {
+            $i++;
+            my $args;
+            if ($eg->{args}) {
+                $args = $eg->{args};
+            } elsif ($eg->{argv}) {
+                require Perinci::Sub::GetArgs::Argv;
+                my $gares = Perinci::Sub::GetArgs::Argv::get_args_from_argv(
+                    argv => $eg->{argv}, meta => $meta);
+                die "Can't convert argv to argv in example #$i ".
+                    "of function $res->{name}): $gares->[0] - $gares->[1]"
+                        unless $gares->[0] == 200;
+                $args = $gares->[2];
+            } else {
+                $args = {};
+            }
+            # XXX allow using language other than perl?
+            require Data::Dump;
+            my $argsdump = Data::Dump::dump($args);
+            $argsdump =~ s/^\{\s*//; $argsdump =~ s/\s*\}\n?$//;
+            my $out = "$res->{name}($argsdump);";
+            my $resdump;
+            if (exists $eg->{result}) {
+                $resdump = Data::Dump::dump($eg->{result});
+            }
+            my $status = $eg->{status} // 200;
+            my $comment;
+            my @expl;
+            $out =~ s/^/ /mg;
+            # all fits on a single not-too-long line
+            if ($argsdump !~ /\n/ &&
+                    (!defined($resdump) || $resdump !~ /\n/) &&
+                        length($argsdump) + length($resdump // "") < 80) {
+                if ($status == 200) {
+                    $comment = "-> $resdump" if defined $resdump;
+                } else {
+                    $comment = "ERROR $status";
+                }
+            } else {
+                push @expl, "Result: C<< $resdump >>." if defined($resdump);
+            }
+            push @expl, ($eg->{summary} . ($eg->{summary} =~ /\.$/ ? "" : "."))
+                if $eg->{summary};
+            # XXX example's description
+
+            $self->add_doc_lines(
+                $out . (defined($comment) ? " # $comment" : ""),
+                ("") x !!@expl,
+            );
+        }
+    }
+
     $self->add_doc_lines($self->_md2pod($res->{description}), "")
         if $res->{description};
 
@@ -191,7 +248,7 @@ Perinci::Sub::To::POD - Generate POD documentation from Rinci function metadata
 
 =head1 VERSION
 
-version 0.05
+version 0.06
 
 =head1 SYNOPSIS
 
