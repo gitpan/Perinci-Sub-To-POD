@@ -3,7 +3,7 @@ NAME
     metadata
 
 VERSION
-    version 0.06
+    version 0.07
 
 SYNOPSIS
     You can use the included peri-func-doc script, or:
@@ -15,6 +15,21 @@ SYNOPSIS
 SEE ALSO
     Perinci::To::POD to generate POD documentation for the whole package.
 
+HOMEPAGE
+    Please visit the project's homepage at
+    <https://metacpan.org/release/Perinci-Sub-To-POD>.
+
+SOURCE
+    Source repository is at
+    <https://github.com/sharyanto/perl-Perinci-Sub-To-POD>.
+
+BUGS
+    Please report any bugs or feature requests on the bugtracker website
+    http://rt.cpan.org/Public/Dist/Display.html?Name=Perinci-Sub-To-POD
+
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
+
 AUTHOR
     Steven Haryanto <stevenharyanto@gmail.com>
 
@@ -23,8 +38,4 @@ COPYRIGHT AND LICENSE
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
-
-DESCRIPTION
-FUNCTIONS
-    None are exported by default, but they are exportable.
 

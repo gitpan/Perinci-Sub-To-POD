@@ -1,33 +1,40 @@
 Revision history for Perinci-Sub-To-POD
 
-0.06	 2012-10-06 (SHARYANTO)
+0.07	 2013-11-01 (SHARYANTO)
+
+         [INCOMPATIBLE CHANGES]
+
+         - Adjust to Perinci::Sub::To::Text 0.28.
+
+
+0.06	 2013-10-06 (SHARYANTO)
 
          - Show examples from metadata.
 
 
-0.05	 2012-09-08 (SHARYANTO)
+0.05	 2013-09-08 (SHARYANTO)
 
          - Make sure url starts with pl: instead of schemeless due to recent
            Perinci::Sub::To::Text using Perinci::Access::Perl instead of the old
            ::InProcess.
 
 
-0.04	 2012-08-11 (SHARYANTO)
+0.04	 2013-08-11 (SHARYANTO)
 
          - No functional changes. Adjust to Perinci::Sub::To::Text 0.24.
 
 
-0.03	 2012-07-26 (SHARYANTO)
+0.03	 2013-07-26 (SHARYANTO)
 
          - Fix a small bug.
 
 
-0.02	 2012-07-26 (SHARYANTO)
+0.02	 2013-07-26 (SHARYANTO)
 
          - Fix a small bug.
 
 
-0.01	 2012-07-26 (SHARYANTO)
+0.01	 2013-07-26 (SHARYANTO)
 
 	 - First release, extracted from Perinci-To-POD to support generating POD
 	   documentation for a single function.
