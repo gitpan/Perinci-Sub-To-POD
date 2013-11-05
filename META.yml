@@ -33,4 +33,4 @@ requires:
   Perinci::Sub::Util: 0
   perl: 5.010001
 resources: {}
-version: 0.07
+version: 0.08

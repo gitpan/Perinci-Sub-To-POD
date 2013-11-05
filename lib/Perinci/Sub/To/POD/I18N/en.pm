@@ -4,7 +4,7 @@ use parent qw(Perinci::Sub::To::POD::I18N Perinci::Sub::To::FuncBase::I18N::en);
 use Locale::Maketext::Lexicon::Gettext;
 our %Lexicon = %{ Locale::Maketext::Lexicon::Gettext->parse(<DATA>) };
 
-our $VERSION = '0.07'; # VERSION
+our $VERSION = '0.08'; # VERSION
 
 #use Data::Dump; dd \%Lexicon;
 
@@ -21,7 +21,7 @@ Perinci::Sub::To::POD::I18N::en - English translation for Perinci::Sub::To::POD
 
 =head1 VERSION
 
-version 0.07
+version 0.08
 
 =head1 HOMEPAGE
 

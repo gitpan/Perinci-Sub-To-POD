@@ -1,5 +1,13 @@
 Revision history for Perinci-Sub-To-POD
 
+0.08	 2013-11-05 (SHARYANTO)
+
+         [BUG FIXES]
+
+         - Didn't use the original metadata's args_as and result_naked property
+           values.
+
+
 0.07	 2013-11-01 (SHARYANTO)
 
          [INCOMPATIBLE CHANGES]
